@@ -1,3 +1,5 @@
+package t1;
+
 public class Fifo {
 
     private int fila[];
@@ -71,7 +73,7 @@ public class Fifo {
         aux = this.begin;
 
         System.out.print(" " + this.fila[aux]);
-        
+
         while (aux != this.end) {
             aux = (aux + 1) % this.length;
             System.out.print(" " + this.fila[aux]);

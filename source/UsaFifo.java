@@ -1,3 +1,5 @@
+package t1;
+
 import javax.swing.JOptionPane;
 
 public class UsaFifo {
@@ -39,7 +41,7 @@ public class UsaFifo {
                     } else {
                         System.out.println("nRetirada idade " + aux);
                     }
-                    
+
                     break;
                 case 3:
                     System.out.println("\n Veja a list: ");
