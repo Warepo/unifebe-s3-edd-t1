@@ -2,7 +2,8 @@ package t1;
 
 public class Fifo {
 
-    private int fila[];
+    private int lista_int[];
+    private int lista_string[];
     private int end;
     private int begin;
     private int length;
@@ -10,21 +11,23 @@ public class Fifo {
     Fifo(String[] agrs) {
 
         this.length = agrs.length > 1 && agrs[0] != null ? args[0] : 20;
-        this.fila = new int[this.length];
+        this.lista_int = new int[this.length];
+        this.lista_string = new int[this.length];
 
         this.end = -1;
         this.begin = -1;
 
     }
 
-    public boolean inserir(int num) {
+    public boolean inserir(int num, String name) {
 
         int aux = (this.end + 1) % this.length;
 
         if (aux != this.begin) {
 
             this.end = aux;
-            this.fila[aux] = num;
+            this.lista_int[aux] = num;
+            this.lista_string[aux] = name;
 
             if (this.begin < 0) {
                 this.begin = 0;
@@ -42,7 +45,8 @@ public class Fifo {
 
         if (this.begin >= 0) {
 
-            volta = this.fila[this.begin];
+            volta = this.lista_int[this.begin];
+            volta = this.lista_string[this.begin];
 
             if (this.begin == this.end) {
                 this.begin = -1;
@@ -72,11 +76,13 @@ public class Fifo {
 
         aux = this.begin;
 
-        System.out.print(" " + this.fila[aux]);
+        System.out.print(" " + this.lista_int[aux]);
+        System.out.print(" " + this.lista_string[aux]);
 
         while (aux != this.end) {
             aux = (aux + 1) % this.length;
-            System.out.print(" " + this.fila[aux]);
+            System.out.print(" " + this.lista_int[aux]);
+            System.out.print(" " + this.lista_string[aux]);
         }
     }
 }
