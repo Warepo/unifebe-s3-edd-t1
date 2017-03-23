@@ -5,8 +5,10 @@
 
 Escreva um programa que permita implementar uma lista Fifo com alocação estática de memória. Cada nodo da lista conterá o número de matricula e o nome de um funcionário. O programa deve apresentar ao usuário o seguinte menu:
 
-| Tabela de opções |
+## Tabela de opções
+
 | Nº | Nome | Descrição |
+|:--:|:--|:--|
 | 1 | Inserir | pede o número de matricula, o nome do funcionário e coloca na lista |
 | 2 | Retirar | retira o funcionário da lista e mostra o nome do mesmo |
 | 3 | Mostrar | mostra o número de matricula de todos os funcionários |
