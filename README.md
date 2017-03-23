@@ -19,8 +19,21 @@ Escreva um programa que permita implementar uma lista Fifo com alocação estát
 | 8 | Quantos | diz quantos funcionários estão na lista |
 | 9 | Vazar | Pica a mula! |
 
-#### Observações
+## Observações
 1. A capacidade máxima da fila é de 20 funcionários;
 2. O menu é mostrado sucessivamente até que a opção 9 seja selecionada;
 3. Para cada opção no menu, deve existir um método especifico;
 4. Somente o método main e o método correspondente a opção 3 do menu podem fazer I/O;
+
+
+## Compilando e rodando o código
+
+```bash
+C:\path\to\project
+λ javac -cp ./source/*.java -d ./build
+
+C:\path\to\project\source
+λ cd ..\build
+
+C:\path\to\project\build
+λ java VehicleTester
