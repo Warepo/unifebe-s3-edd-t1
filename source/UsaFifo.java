@@ -1,4 +1,4 @@
-package t1;
+﻿package t1;
 
 import javax.swing.JOptionPane;
 
@@ -14,8 +14,12 @@ public class UsaFifo {
                     + "\t1. Inserir\n"
                     + "\t2. Retirar\n"
                     + "\t3. Mostrar\n"
-                    + "\t4. Destuir\n"
-                    + "\t5. Vazar\n"
+                    + "\t4. Onde Está\n"
+                    + "\t5. Quem é\n"
+					+ "\t6. Cabeça\n"
+					+ "\t7. Detonar\n"
+					+ "\t8. Quantos\n"
+					+ "\t9. Vazar\n"
                     + "Digite sua opção: ");
 
             choice = Integer.parseInt(input);
