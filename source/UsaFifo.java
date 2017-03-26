@@ -30,7 +30,7 @@ public class UsaFifo {
 
                     System.out.println("\n\nInforme número do colaborador: ");
                     aux = read.nextInt();
-                    
+
 
                     if (list.inserir(aux)) {
                         System.out.println("\nIdade inserida com sucesso");
