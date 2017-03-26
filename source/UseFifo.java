@@ -1,4 +1,3 @@
-import lister.Fifo;
 import java.util.Scanner; // leitura em CLI (Command Line Interface)
 
 public class UseFifo {
@@ -10,17 +9,18 @@ public class UseFifo {
         int choice;
 
         do {
-            System.out.print("Menu\n"
-                + "\t1. Inserir\n"
-                + "\t2. Retirar\n"
-                + "\t3. Mostrar\n"
-                + "\t4. Onde Está\n"
-                + "\t5. Quem é\n"
-                + "\t6. Cabeça\n"
-                + "\t7. Detonar\n"
-                + "\t8. Quantos\n"
-                + "\t9. Vazar\n"
-                + "Digite sua opção: ");
+            System.out.print("\n╔═══════════════════\n"
+                + "║ Menu\n"
+                + "╠ \t1. Inserir\n"
+                + "╠ \t2. Retirar\n"
+                + "╠ \t3. show\n"
+                + "╠ \t4. Onde Está\n"
+                + "╠ \t5. Quem é\n"
+                + "╠ \t6. Cabeça\n"
+                + "╠ \t7. Detonar\n"
+                + "╠ \t8. Quantos\n"
+                + "╠ \t9. Vazar\n"
+                + "╚ Digite sua opção: ");
 
             choice = io.nextInt();
 
@@ -41,7 +41,7 @@ public class UseFifo {
 
                     System.out.print("\n\n");
 
-                    if (list.inserir(id, name)) {
+                    if (list.insert(id, name)) {
                         System.out.println("Idade inserida com sucesso");
                     } else {
                         System.out.println("Fifo cheia - Overflow");
@@ -50,7 +50,7 @@ public class UseFifo {
                     break;
                 case 2:
 
-                    if (list.retirar() == false) {
+                    if (list.remove() == false) {
                         System.out.println("Fifo vazia.");
                     } else {
                         System.out.println("Retirado valor.");
@@ -59,10 +59,12 @@ public class UseFifo {
                     break;
                 case 3:
                     System.out.println("Veja a lista: ");
-                    list.mostrar();
+
+                    list.show();
+
                     break;
                 case 4:
-                    list.detonar();
+                    list.destroy();
             }
         } while (choice != 5);
     }
