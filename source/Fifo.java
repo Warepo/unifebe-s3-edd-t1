@@ -103,28 +103,26 @@ public class Fifo {
     }
 
     /**
-     * Shows an employee name by it's index in the list.
+     * Gets an employee name by it's index in the list.
+     * @method getByIndex
      * @param {int} index : The employee index in list.
-     * @return {void} Returns nothing.
+     * @return {String} Returns the emplyee.
      */
-    public void show_in(int index) {
-        int aux;
+    public String getByIndex(int index) {
 
         if (this.begin == -1) {
-            System.out.println("\nFila Vazia");
-            return;
+            return "Fila Vazia!";
         }
 
-        aux = 0;
+        int aux = -1;
 
         do {
-          aux++;
-          nr++;
+          ++aux;
 
           if (this.lista_int[aux] == index) {
-            System.out.println("Nome: "+this.lista_string[aux]);
+            return "Nome: "+this.lista_string[aux];
           }
 
-        }while (aux < this.end);
+        } while (aux < this.end);
     }
 }
