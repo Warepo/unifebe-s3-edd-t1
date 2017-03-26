@@ -13,7 +13,7 @@ public class UseFifo {
                 + "║ Menu\n"
                 + "╠ \t1. Inserir\n"
                 + "╠ \t2. Retirar\n"
-                + "╠ \t3. show\n"
+                + "╠ \t3. Ver lista\n"
                 + "╠ \t4. Onde Está\n"
                 + "╠ \t5. Quem é\n"
                 + "╠ \t6. Cabeça\n"
@@ -42,9 +42,9 @@ public class UseFifo {
                     System.out.print("\n\n");
 
                     if (list.insert(id, name)) {
-                        System.out.println("Idade inserida com sucesso");
+                        System.out.println("Funcionário inserido com sucesso!");
                     } else {
-                        System.out.println("Fifo cheia - Overflow");
+                        System.out.println("Fifo cheia - Overflow.");
                     }
 
                     break;
@@ -63,8 +63,10 @@ public class UseFifo {
                     list.show();
 
                     break;
-                case 4:
+                case 7:
                     list.destroy();
+                    
+                    break;
             }
         } while (choice != 5);
     }
