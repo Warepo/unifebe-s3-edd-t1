@@ -3,14 +3,14 @@ package t1;
 public class Fifo {
 
     private int lista_int[];
-    private int lista_string[];
+    private String lista_string[];
     private int end;
     private int begin;
     private int length;
 
-    Fifo(String[] agrs) {
+    Fifo(String[] args) {
 
-        this.length = agrs.length > 1 && agrs[0] != null ? args[0] : 20;
+        this.length = args.length > 1 && args[0] != null ? args[0] : 20;
         this.lista_int = new int[this.length];
         this.lista_string = new int[this.length];
 

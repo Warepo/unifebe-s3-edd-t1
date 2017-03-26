@@ -6,7 +6,7 @@ public class UsaFifo {
 
     public static void main(String[] args) {
         String name;
-        int aux, choice, age;
+        int aux, choice;
         Fifo list = new Fifo();
         Scanner read = new Scanner(System.in);
 
@@ -40,20 +40,20 @@ public class UsaFifo {
                     }
 
                     break;
-                case 2:
-                    aux = list.retirar();
-
-                    if (aux == -999) {
-                        System.out.println("\nFifo vazia");
-                    } else {
-                        System.out.println("nRetirada idade " + aux);
-                    }
-
-                    break;
-                case 3:
-                    System.out.println("\n Veja a list: ");
-                    list.mostrar();
-                    break;
+                // case 2:
+                //     aux = list.retirar();
+                //
+                //     if (aux == -999) {
+                //         System.out.println("\nFifo vazia");
+                //     } else {
+                //         System.out.println("nRetirada idade " + aux);
+                //     }
+                //
+                //     break;
+                // case 3:
+                //     System.out.println("\n Veja a list: ");
+                //     list.mostrar();
+                //     break;
                 case 7:
                     list.detonar();
             }
