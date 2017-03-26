@@ -1,6 +1,6 @@
-﻿package t1;
+import t1.Fifo;
 
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class UsaFifo {
 
@@ -16,10 +16,10 @@ public class UsaFifo {
                     + "\t3. Mostrar\n"
                     + "\t4. Onde Está\n"
                     + "\t5. Quem é\n"
-					+ "\t6. Cabeça\n"
-					+ "\t7. Detonar\n"
-					+ "\t8. Quantos\n"
-					+ "\t9. Vazar\n"
+	                  + "\t6. Cabeça\n"
+					          + "\t7. Detonar\n"
+					          + "\t8. Quantos\n"
+				            + "\t9. Vazar\n"
                     + "Digite sua opção: ");
 
             choice = Integer.parseInt(input);
@@ -51,9 +51,9 @@ public class UsaFifo {
                     System.out.println("\n Veja a list: ");
                     list.mostrar();
                     break;
-                case 4:
+                case 7:
                     list.detonar();
             }
-        } while (choice != 5);
+        } while (choice != 9);
     }
 }
