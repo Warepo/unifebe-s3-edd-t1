@@ -30,10 +30,11 @@ public class UsaFifo {
 
                     System.out.println("\n\nInforme número do colaborador: ");
                     aux = read.nextInt();
+                    System.out.println("\n\nInforme o nome do colaborador");
+                    name = read.nextLine();
 
-
-                    if (list.inserir(aux)) {
-                        System.out.println("\nIdade inserida com sucesso");
+                    if (list.inserir(aux,name)) {
+                        System.out.println("\nDados do colaborador "+name+" foram inseridos com sucesso");
                     } else {
                         System.out.println("\nFifo cheia - Overflow");
                     }
