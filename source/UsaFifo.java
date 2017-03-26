@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class UsaFifo {
 
     public static void main(String[] args) {
-        String input;
-        int aux, choice;
+        String name;
+        int aux, choice, age;
         Fifo list = new Fifo();
+        Scanner read = new Scanner(System.in);
 
         do {
-            input = JOptionPane.showInputDialog("Menu\n"
+            System.out.println("Menu\n"
                     + "\t1. Inserir\n"
                     + "\t2. Retirar\n"
                     + "\t3. Mostrar\n"
@@ -22,13 +23,14 @@ public class UsaFifo {
 				            + "\t9. Vazar\n"
                     + "Digite sua opção: ");
 
-            choice = Integer.parseInt(input);
+            choice = read.nextInt();
 
             switch (choice) {
                 case 1:
 
-                    input = JOptionPane.showInputDialog("\n\nInforme a idade: ");
-                    aux = Integer.parseInt(input);
+                    System.out.println("\n\nInforme número do colaborador: ");
+                    aux = read.nextInt();
+                    
 
                     if (list.inserir(aux)) {
                         System.out.println("\nIdade inserida com sucesso");
