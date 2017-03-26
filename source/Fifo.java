@@ -1,5 +1,9 @@
+/**
+ * A FIFO (First-In First-Out) list "interface".
+ * @author odahcam
+ * @author anologicon
+ */
 public class Fifo {
-    // First-In First-Out
 
     private int lista_int[];
     private String lista_string[];
@@ -19,14 +23,21 @@ public class Fifo {
 
     }
 
-    public boolean insert(int num, String name) {
+    /**
+     * Adds an employee to the list.
+     * @method insert
+     * @param {int} id : The employee ID number.
+     * @param {String} name : The employee name.
+     * @return {boolean} Returns true on success and false on failure.
+     */
+    public boolean insert(int id, String name) {
 
         int aux = (this.end + 1) % this.length;
 
         if (aux != this.begin) {
 
             this.end = aux;
-            this.lista_int[aux] = num;
+            this.lista_int[aux] = id;
             this.lista_string[aux] = name;
 
             if (this.begin < 0) {
@@ -39,6 +50,10 @@ public class Fifo {
         return false;
     }
 
+    /**
+     * @method remove
+     * @return {boolean} Returns true on success and false on failure.
+     */
     public boolean remove() {
 
         boolean output = false;
@@ -63,6 +78,10 @@ public class Fifo {
         this.end = -1;
     }
 
+    /**
+     * Show the list items.
+     * @return {void} Returns nothing.
+     */
     public void show() {
 
         if (this.begin == -1) {
@@ -76,13 +95,19 @@ public class Fifo {
 
             ++aux;
 
-            System.out.println("\n ID = " + this.lista_int[aux]);
-            System.out.println("\n NOME = " + this.lista_string[aux]);
-            System.out.println("\n\n --------------------------------" );
+            System.out.println("╠╦ " + this.lista_int[aux]);
+            System.out.println("║╚ " + this.lista_string[aux]);
 
         } while (aux < this.end);
+        System.out.println("\n\n --------------------------------" );
     }
-    public void show_in(int num) {
+
+    /**
+     * Shows an employee name by it's index in the list.
+     * @param {int} index : The employee index in list.
+     * @return {void} Returns nothing.
+     */
+    public void show_in(int index) {
         int aux;
 
         if (this.begin == -1) {
@@ -91,11 +116,13 @@ public class Fifo {
         }
 
         aux = 0;
-        do{
+
+        do {
           aux++;
           nr++;
-          if(this.lista_int[aux] == num){
-            System.out.println(" Nome: "+this.lista_string[aux]);
+
+          if (this.lista_int[aux] == index) {
+            System.out.println("Nome: "+this.lista_string[aux]);
           }
 
         }while (aux < this.end);
