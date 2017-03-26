@@ -91,6 +91,8 @@ public class Fifo {
 
         int aux = -1;
 
+        System.out.println("\n╔══ Lista de funcionários."
+
         do {
 
             ++aux;
@@ -99,7 +101,8 @@ public class Fifo {
             System.out.println("║╚ " + this.lista_string[aux]);
 
         } while (aux < this.end);
-        System.out.println("\n\n --------------------------------" );
+
+        System.out.println("╚══════════════════════════");
     }
 
     /**
