@@ -64,24 +64,21 @@ public class Fifo {
     }
 
     public void show() {
-        int aux;
 
         if (this.begin == -1) {
-            System.out.println("\nFila Vazia");
+            System.out.println("Fila Vazia!");
             return;
         }
 
-        System.out.print("\nVeja a Fila");
+        int aux = -1;
 
-        aux = this.begin;
+        do {  
 
-        System.out.print(" " + this.lista_int[aux]);
-        System.out.print(" " + this.lista_string[aux]);
-
-        while (aux != this.end) {
-            aux = (aux + 1) % this.length;
-            System.out.print(" " + this.lista_int[aux]);
-            System.out.print(" " + this.lista_string[aux]);
-        }
+            ++aux;
+            
+            System.out.println("╠╦ " + this.lista_int[aux]);
+            System.out.println("║╚ " + this.lista_string[aux]);
+        
+        } while (aux < this.end);
     }
 }
