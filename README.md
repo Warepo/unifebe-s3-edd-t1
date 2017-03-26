@@ -28,12 +28,12 @@ Escreva um programa que permita implementar uma lista Fifo com alocação estát
 ## Compilando e rodando o código
 
 ```bash
-C:\path\to\project
-λ javac ./source/*.java -d ./build
+C:\path\to\project\
+$ javac -encoding utf8 ./source/*.java -d ./build
 
-C:\path\to\project\source
-λ cd ..\build
+C:\path\to\project\source\
+$ cd ..\build
 
-C:\path\to\project\build
-λ java ClassName
+C:\path\to\project\build\
+$ java ClassName
 ```
