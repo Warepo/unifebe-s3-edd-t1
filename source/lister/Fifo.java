@@ -85,4 +85,21 @@ public class Fifo {
             System.out.print(" " + this.lista_string[aux]);
         }
     }
+    public void mostrar_nafila(int num) {
+        int aux;
+
+        if (this.begin == -1) {
+            System.out.println("\nFila Vazia");
+            return;
+        }
+
+        aux = this.begin;
+
+
+        while (aux != this.end) {
+          if(this.lista_int[aux] == num){
+            System.out.println(" Funcionario"+this.lista_string[aux]);
+          }
+        }
+    }
 }
