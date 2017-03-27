@@ -187,9 +187,21 @@ public class Fifo {
                     break;
                 }
 
+<<<<<<< HEAD
             } while (aux < this.ending);
         }
 
         return position;
+=======
+<<<<<<< HEAD
+        } while (aux < this.end);
+        return "";
+=======
+            } while (aux < this.end);
+        }
+
+        return output;
+>>>>>>> 9e5edcf03416e89585414f6bb7c35cd29fcae208
+>>>>>>> 09b5ad5ac963304c9fd9d0c6bc19ee46a889b7d0
     }
 }

@@ -81,7 +81,11 @@ public class UseFifo {
 
                 // 5. Quem é
                 case 5:
+<<<<<<< HEAD
+                System.out.println("\n Digite o matrículo do funcionario:");
+=======
                 System.out.println("\n Digite a matrícula do funcionário:");
+>>>>>>> 9e5edcf03416e89585414f6bb7c35cd29fcae208
                 id = io.nextInt();
                 System.out.println("Nome: " + list.getNameByID(id));
 
