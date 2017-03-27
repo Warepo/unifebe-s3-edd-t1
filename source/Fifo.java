@@ -1,6 +1,5 @@
-package lister;
-
 public class Fifo {
+    // First-In First-Out
 
     private int lista_int[];
     private String lista_string[];
@@ -20,7 +19,7 @@ public class Fifo {
 
     }
 
-    public boolean inserir(int num, String name) {
+    public boolean insert(int num, String name) {
 
         int aux = (this.end + 1) % this.length;
 
@@ -40,7 +39,7 @@ public class Fifo {
         return false;
     }
 
-    public boolean retirar() {
+    public boolean remove() {
 
         boolean output = false;
 
@@ -59,31 +58,28 @@ public class Fifo {
         return output;
     }
 
-    public void detonar() {
+    public void destroy() {
         this.begin = -1;
         this.end = -1;
     }
 
-    public void mostrar() {
-        int aux;
+    public void show() {
 
         if (this.begin == -1) {
-            System.out.println("\nFila Vazia");
+            System.out.println("Fila Vazia!");
             return;
         }
 
-        System.out.print("\nVeja a Fila");
+        int aux = -1;
 
-        aux = this.begin;
+        do {  
 
-        System.out.print(" " + this.lista_int[aux]);
-        System.out.print(" " + this.lista_string[aux]);
-
-        while (aux != this.end) {
-            aux = (aux + 1) % this.length;
-            System.out.print(" " + this.lista_int[aux]);
-            System.out.print(" " + this.lista_string[aux]);
-        }
+            ++aux;
+            
+            System.out.println("╠╦ " + this.lista_int[aux]);
+            System.out.println("║╚ " + this.lista_string[aux]);
+        
+        } while (aux < this.end);
     }
     public void mostrar_nafila(int num) {
         int aux;

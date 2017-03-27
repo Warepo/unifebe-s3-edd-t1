@@ -1,7 +1,7 @@
-# T1
-## Listas FIFO
-### Estrutura de dados
-#### Season 4
+# T1 - Listas FIFO
+## Estrutura De Dados
+### Season 3
+#### Unifebe
 
 Escreva um programa que permita implementar uma lista Fifo com alocação estática de memória. Cada nodo da lista conterá o número de matricula e o nome de um funcionário. O programa deve apresentar ao usuário o seguinte menu:
 
@@ -25,15 +25,15 @@ Escreva um programa que permita implementar uma lista Fifo com alocação estát
 3. Para cada opção no menu, deve existir um método especifico;
 4. Somente o método main e o método correspondente a opção 3 do menu podem fazer I/O;
 
-
 ## Compilando e rodando o código
 
 ```bash
 C:\path\to\project
-λ javac -cp ./source/*.java -d ./build
+λ javac ./source/*.java -d ./build
 
 C:\path\to\project\source
 λ cd ..\build
 
 C:\path\to\project\build
-λ java VehicleTester
+λ java ClassName
+```
