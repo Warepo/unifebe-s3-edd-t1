@@ -65,12 +65,15 @@ public class UseFifo {
         break;
 
         case 4:
-        
+        System.out.println("\n Digite o ID do funcionario:");
+        id = io.nextInt();
+
+        list.show_in(id);
 
         break;
 
         case 7:
-        list.detonar();
+        list.destroy();
 
 
       }
