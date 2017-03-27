@@ -83,7 +83,7 @@ public class UseFifo {
                 case 5:
                 System.out.println("\n Digite a matrícula do funcionário:");
                 id = io.nextInt();
-                System.out.println(list.getByID(id));
+                System.out.println("Nome: " + list.getNameByID(id));
 
                 break;
 

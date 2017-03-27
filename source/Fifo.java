@@ -107,11 +107,11 @@ public class Fifo {
 
     /**
     * Gets an employee name by it's index in the list.
-    * @method getByID
+    * @method getNameByID
     * @param {int} index : The employee index in list.
     * @return {String} Returns the emplyee name.
     */
-    public String getByID(int id) {
+    public String getNameByID(int id) {
 
         String output = "Fila Vazia!";
 
@@ -125,7 +125,7 @@ public class Fifo {
                 ++aux;
 
                 if (this.lista_int[aux] == id) {
-                    output = "Nome: "+this.lista_string[aux];
+                    output = this.lista_string[aux];
                     break;
                 }
 
