@@ -73,7 +73,7 @@ public class UseFifo {
                 System.out.println("Digite a matrícula do funcionario:");
                 id = io.nextInt();
 
-                list.show_in(id);
+                // list.show_in(id);
 
                 break;
 
@@ -81,7 +81,7 @@ public class UseFifo {
                 case 5:
                 System.out.println("\n Digite o ID do funcionario:");
                 id = io.nextInt();
-                list.getByIndex(id);
+                System.out.println(list.getByIndex(id));
 
                 break;
 

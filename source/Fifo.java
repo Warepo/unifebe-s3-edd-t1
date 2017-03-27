@@ -113,6 +113,35 @@ public class Fifo {
      */
     public String getByIndex(int index) {
 
+        String output = "";
+
+        if (this.begin == -1) {
+            output = "Fila Vazia!";
+        }
+
+        int aux = -1;
+
+        do {
+          ++aux;
+
+          if (this.lista_int[aux] == index) {
+            output = "Nome: "+this.lista_string[aux];
+            break;
+          }
+
+        } while (aux < this.end);
+
+        return output;
+    }
+
+    /**
+     * Gets an employee name by it's index in the list.
+     * @method getByIndex
+     * @param {int} index : The employee index in list.
+     * @return {String} Returns the emplyee.
+     */
+    public String getByIndex(int index) {
+
         if (this.begin == -1) {
             return "Fila Vazia!";
         }
