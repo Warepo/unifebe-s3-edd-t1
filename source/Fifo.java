@@ -1,8 +1,8 @@
 /**
- * A FIFO (First-In First-Out) list "interface".
- * @author odahcam
- * @author anologicon
- */
+* A FIFO (First-In First-Out) list "interface".
+* @author odahcam
+* @author anologicon
+*/
 public class Fifo {
 
     private int lista_int[];
@@ -24,12 +24,12 @@ public class Fifo {
     }
 
     /**
-     * Adds an employee to the list.
-     * @method insert
-     * @param {int} id : The employee ID number.
-     * @param {String} name : The employee name.
-     * @return {boolean} Returns true on success and false on failure.
-     */
+    * Adds an employee to the list.
+    * @method insert
+    * @param {int} id : The employee ID number.
+    * @param {String} name : The employee name.
+    * @return {boolean} Returns true on success and false on failure.
+    */
     public boolean insert(int id, String name) {
 
         int aux = (this.end + 1) % this.length;
@@ -51,9 +51,9 @@ public class Fifo {
     }
 
     /**
-     * @method remove
-     * @return {boolean} Returns true on success and false on failure.
-     */
+    * @method remove
+    * @return {boolean} Returns true on success and false on failure.
+    */
     public boolean remove() {
 
         boolean output = false;
@@ -79,9 +79,9 @@ public class Fifo {
     }
 
     /**
-     * Show the list items.
-     * @return {void} Returns nothing.
-     */
+    * Show the list items.
+    * @return {void} Returns nothing.
+    */
     public void show() {
 
         if (this.begin == -1) {
@@ -91,70 +91,73 @@ public class Fifo {
 
         int aux = -1;
 
-        System.out.println("\n╔══ Lista de funcionários."
+        System.out.println("\n╔══ Lista de funcionários.");
 
         do {
 
             ++aux;
 
-            System.out.println("╠╦ " + this.lista_int[aux]);
-            System.out.println("║╚ " + this.lista_string[aux]);
+            System.out.println("╠╦═ " + this.lista_int[aux]);
+            System.out.println("║╚═ " + this.lista_string[aux]);
 
         } while (aux < this.end);
 
-        System.out.println("╚══════════════════════════");
+        System.out.println("╚═══════════════════════════");
     }
 
     /**
-     * Gets an employee name by it's index in the list.
-     * @method getByIndex
-     * @param {int} index : The employee index in list.
-     * @return {String} Returns the emplyee.
-     */
-    public String getByIndex(int index) {
+    * Gets an employee name by it's index in the list.
+    * @method getByIndex
+    * @param {int} index : The employee index in list.
+    * @return {String} Returns the emplyee name.
+    */
+    public String getByID(int id) {
 
-        String output = "";
+        String output = "Fila Vazia!";
 
-        if (this.begin == -1) {
-            output = "Fila Vazia!";
+        if (this.begin != -1) {
+
+            int aux = -1;
+
+            do {
+                ++aux;
+
+                if (this.lista_int[aux] == id) {
+                    output = "Nome: "+this.lista_string[aux];
+                    break;
+                }
+
+            } while (aux < this.end);
+
         }
-
-        int aux = -1;
-
-        do {
-          ++aux;
-
-          if (this.lista_int[aux] == index) {
-            output = "Nome: "+this.lista_string[aux];
-            break;
-          }
-
-        } while (aux < this.end);
 
         return output;
     }
 
     /**
-     * Gets an employee name by it's index in the list.
-     * @method getByIndex
-     * @param {int} index : The employee index in list.
-     * @return {String} Returns the emplyee.
-     */
-    public String getByIndex(int index) {
+    * Finds the emplyee position by it's ID.
+    * @param {int} id : the emplyee ID
+    * @return {String} Returns the emplyee name.
+    */
+    public int getPositionByID(int id)
+    {
+        int output = -1;
 
-        if (this.begin == -1) {
-            return "Fila Vazia!";
+        if (this.begin != -1) {
+
+            int aux = -1;
+
+            do {
+                ++aux;
+
+                if (this.lista_int[aux] == id) {
+                    output = 20;
+                    break;
+                }
+
+            } while (aux < this.end);
         }
 
-        int aux = -1;
-
-        do {
-          ++aux;
-
-          if (this.lista_int[aux] == index) {
-            return "Nome: "+this.lista_string[aux];
-          }
-
-        } while (aux < this.end);
+        return output;
     }
 }
