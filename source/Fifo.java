@@ -7,8 +7,8 @@ public class Fifo {
 
     private int lista_int[];
     private String lista_string[];
-    private int end;
-    private int begin;
+    private int ending;
+    private int beginning;
     private int length;
 
     public Fifo() {
@@ -18,8 +18,8 @@ public class Fifo {
         this.lista_int = new int[this.length];
         this.lista_string = new String[this.length];
 
-        this.end = -1;
-        this.begin = -1;
+        this.ending = -1;
+        this.beginning = -1;
 
     }
 
@@ -32,16 +32,16 @@ public class Fifo {
     */
     public boolean insert(int id, String name) {
 
-        int aux = (this.end + 1) % this.length;
+        int aux = (this.ending + 1) % this.length;
 
-        if (aux != this.begin) {
+        if (aux != this.beginning) {
 
-            this.end = aux;
+            this.ending = aux;
             this.lista_int[aux] = id;
             this.lista_string[aux] = name;
 
-            if (this.begin < 0) {
-                this.begin = 0;
+            if (this.beginning < 0) {
+                this.beginning = 0;
             }
 
             return true;
@@ -58,13 +58,13 @@ public class Fifo {
 
         boolean output = false;
 
-        if (this.begin >= 0) {
+        if (this.beginning >= 0) {
 
-            if (this.begin == this.end) {
-                this.begin = -1;
-                this.end = -1;
+            if (this.beginning == this.ending) {
+                this.beginning = -1;
+                this.ending = -1;
             } else {
-                this.begin = (this.begin + 1) % this.length;
+                this.beginning = (this.beginning + 1) % this.length;
             }
 
             output = true;
@@ -74,8 +74,8 @@ public class Fifo {
     }
 
     public void destroy() {
-        this.begin = -1;
-        this.end = -1;
+        this.beginning = -1;
+        this.ending = -1;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Fifo {
     */
     public void show() {
 
-        if (this.begin == -1) {
+        if (this.beginning == -1) {
             System.out.println("Fila Vazia!");
             return;
         }
@@ -100,14 +100,14 @@ public class Fifo {
             System.out.println("╠╦═ " + this.lista_int[aux]);
             System.out.println("║╚═ " + this.lista_string[aux]);
 
-        } while (aux < this.end);
+        } while (aux < this.ending);
 
         System.out.println("╚═══════════════════════════");
     }
 
     /**
     * Gets an employee name by it's index in the list.
-    * @method getByIndex
+    * @method getByID
     * @param {int} index : The employee index in list.
     * @return {String} Returns the emplyee name.
     */
@@ -115,7 +115,9 @@ public class Fifo {
 
         String output = "Fila Vazia!";
 
-        if (this.begin != -1) {
+        if (this.beginning != -1) {
+
+            output = "Não encontrado!";
 
             int aux = -1;
 
@@ -127,7 +129,7 @@ public class Fifo {
                     break;
                 }
 
-            } while (aux < this.end);
+            } while (aux < this.ending);
 
         }
 
@@ -135,15 +137,16 @@ public class Fifo {
     }
 
     /**
-    * Finds the emplyee position by it's ID.
+    * Finds the emplyee index by it's ID.
+    * @method getIndexByID
     * @param {int} id : the emplyee ID
-    * @return {String} Returns the emplyee name.
+    * @return {String} Returns the emplyee index.
     */
-    public int getPositionByID(int id)
+    public int getIndexByID(int id)
     {
         int output = -1;
 
-        if (this.begin != -1) {
+        if (this.beginning != -1) {
 
             int aux = -1;
 
@@ -151,13 +154,42 @@ public class Fifo {
                 ++aux;
 
                 if (this.lista_int[aux] == id) {
-                    output = 20;
-                    break;
+                    output = aux;
                 }
 
-            } while (aux < this.end);
+            } while (aux < this.ending);
         }
 
         return output;
+    }
+
+    /**
+    * Finds the emplyee position by it's ID.
+    * @method getPositionByID
+    * @param {int} id : the emplyee ID
+    * @return {String} Returns the emplyee position.
+    */
+    public int getPositionByID(int id)
+    {
+        int position = -1;
+        int index = this.getIndexByID(id);
+
+        if (index != -1) {
+
+            int aux = -1;
+
+            do {
+                ++aux;
+
+                if (this.lista_int[aux] == id) {
+                    position = aux - this.beginning;
+                    position = position < 0 ? aux + this.ending : position + 1;
+                    break;
+                }
+
+            } while (aux < this.ending);
+        }
+
+        return position;
     }
 }
