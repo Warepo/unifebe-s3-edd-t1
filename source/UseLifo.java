@@ -5,7 +5,7 @@ public class UseFifo {
 
     public static void main(String[] args) {
         Scanner io = new Scanner(System.in);
-        
+
         Fifo list = new Fifo();
         int choice;
 
@@ -30,13 +30,13 @@ public class UseFifo {
                 case 1:
 
                     System.out.print("Informe a matrícula: ");
-                    
+
                     int id = io.nextInt();
 
                     System.out.println();
 
                     System.out.print("Informe o nome: ");
-                    
+
                     String name = io.next();
 
                     System.out.print("\n\n");
