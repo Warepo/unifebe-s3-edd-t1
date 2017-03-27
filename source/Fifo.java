@@ -58,12 +58,9 @@ public class Fifo {
 
         boolean output = false;
 
-        if (this.beginning >= 0) {
+        if (this.beginning > -1) {
 
-            if (this.beginning == this.ending) {
-                this.beginning = -1;
-                this.ending = -1;
-            } else {
+            if (this.beginning != this.ending) {
                 this.beginning = (this.beginning + 1) % this.length;
             }
 
@@ -144,7 +141,7 @@ public class Fifo {
     */
     public int getIndexByID(int id)
     {
-        int output = -1;
+        int index = -1;
 
         if (this.beginning != -1) {
 
@@ -154,13 +151,13 @@ public class Fifo {
                 ++aux;
 
                 if (this.lista_int[aux] == id) {
-                    output = aux;
+                    index = aux;
                 }
 
             } while (aux < this.ending);
         }
 
-        return output;
+        return index;
     }
 
     /**
@@ -187,21 +184,9 @@ public class Fifo {
                     break;
                 }
 
-<<<<<<< HEAD
             } while (aux < this.ending);
         }
 
         return position;
-=======
-<<<<<<< HEAD
-        } while (aux < this.end);
-        return "";
-=======
-            } while (aux < this.end);
-        }
-
-        return output;
->>>>>>> 9e5edcf03416e89585414f6bb7c35cd29fcae208
->>>>>>> 09b5ad5ac963304c9fd9d0c6bc19ee46a889b7d0
     }
 }
