@@ -72,17 +72,18 @@ public class Fifo {
 
         int aux = -1;
 
-        do {  
+        do {
 
             ++aux;
-            
-            System.out.println("╠╦ " + this.lista_int[aux]);
-            System.out.println("║╚ " + this.lista_string[aux]);
-        
+
+            System.out.println("\n ID = " + this.lista_int[aux]);
+            System.out.println("\n NOME = " + this.lista_string[aux]);
+            System.out.println("\n\n --------------------------------" );
+
         } while (aux < this.end);
     }
-    public void mostrar_nafila(int num) {
-        int aux;
+    public void show_in(int num) {
+        int aux, nr;
 
         if (this.begin == -1) {
             System.out.println("\nFila Vazia");
@@ -91,11 +92,13 @@ public class Fifo {
 
         aux = this.begin;
 
+        do{
+          aux++;
 
-        while (aux != this.end) {
           if(this.lista_int[aux] == num){
-            System.out.println(" Funcionario"+this.lista_string[aux]);
+            System.out.println(" Nome: "+this.lista_string[aux]);
           }
-        }
+
+        }while (aux < this.end);
     }
 }
