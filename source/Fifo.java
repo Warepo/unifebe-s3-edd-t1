@@ -83,18 +83,17 @@ public class Fifo {
         } while (aux < this.end);
     }
     public void show_in(int num) {
-        int aux, nr;
+        int aux;
 
         if (this.begin == -1) {
             System.out.println("\nFila Vazia");
             return;
         }
 
-        aux = this.begin;
-
+        aux = 0;
         do{
           aux++;
-
+          nr++;
           if(this.lista_int[aux] == num){
             System.out.println(" Nome: "+this.lista_string[aux]);
           }
