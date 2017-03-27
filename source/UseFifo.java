@@ -61,9 +61,9 @@ public class UseFifo {
                     System.out.println("Veja a lista: ");
                     list.mostrar();
                     break;
-                case 4:
+                case 7:
                     list.detonar();
             }
-        } while (choice != 5);
+        } while (choice != 9);
     }
 }
