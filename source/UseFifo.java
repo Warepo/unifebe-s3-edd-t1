@@ -63,14 +63,15 @@ public class UseFifo {
         list.show();
 
         break;
-        case 7:
-        list.destroy();
+
+        case 4:
+        
 
         break;
 
         case 7:
         list.detonar();
-        
+
 
       }
     } while (choice != 9);
