@@ -10,21 +10,21 @@ public class UseFifo {
         Scanner io = new Scanner(System.in);
 
         Fifo list = new Fifo();
-        int choice;
+        int choice, id;
 
         do {
             System.out.println("╔═══════════════════");
             System.out.println("║ Menu");
-            System.out.println("╠ \t1. Inserir");
-            System.out.println("╠ \t2. Retirar");
-            System.out.println("╠ \t3. Ver lista");
-            System.out.println("╠ \t4. Onde Está");
-            System.out.println("╠ \t5. Quem é");
-            System.out.println("╠ \t6. Cabeça");
-            System.out.println("╠ \t7. Detonar");
-            System.out.println("╠ \t8. Quantos");
-            System.out.println("╠ \t9. Vazar");
-            System.out.print("╚ Digite o número da ação desejada: ");
+            System.out.println("╠══ 1. Inserir");
+            System.out.println("╠══ 2. Retirar");
+            System.out.println("╠══ 3. Ver lista");
+            System.out.println("╠══ 4. Onde Está");
+            System.out.println("╠══ 5. Quem é");
+            System.out.println("╠══ 6. Cabeça");
+            System.out.println("╠══ 7. Detonar");
+            System.out.println("╠══ 8. Quantos");
+            System.out.println("╠══ 9. Vazar");
+            System.out.print("╚═ Digite o número da ação desejada: ");
 
             choice = io.nextInt();
 
@@ -34,11 +34,11 @@ public class UseFifo {
                 // 1. Inserir
                 case 1:
                 System.out.print("Informe a matrícula: ");
-                int id = io.nextInt();
-                System.out.println();
+                id = io.nextInt();
 
                 System.out.print("Informe o nome: ");
                 String name = io.next();
+
                 System.out.print("\n");
 
                 if (list.insert(id, name)) {
@@ -47,12 +47,14 @@ public class UseFifo {
                     System.out.println("Fifo cheia - Overflow.");
                 }
 
+                System.out.print("\n");
+
                 break;
 
                 // 2. Retirar
                 case 2:
 
-                if (list.remove() === false) {
+                if (list.remove() == false) {
                     System.out.println("Fifo vazia.");
                 } else {
                     System.out.println("Funcionário removido.");
@@ -70,18 +72,18 @@ public class UseFifo {
 
                 // 4. Onde Está
                 case 4:
-                System.out.println("Digite a matrícula do funcionario:");
+                System.out.println("Digite a matrícula do funcionário:");
                 id = io.nextInt();
 
-                // list.show_in(id);
+                System.out.println(list.getPositionByID(id));
 
                 break;
 
                 // 5. Quem é
                 case 5:
-                System.out.println("\n Digite o ID do funcionario:");
+                System.out.println("\n Digite a matrícula do funcionário:");
                 id = io.nextInt();
-                System.out.println(list.getByIndex(id));
+                System.out.println(list.getByID(id));
 
                 break;
 
