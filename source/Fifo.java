@@ -5,8 +5,8 @@
 */
 public class Fifo {
 
-    private int lista_int[];
-    private String lista_string[];
+    private int list_int[];
+    private String list_string[];
     private int ending;
     private int beginning;
     private int length;
@@ -15,11 +15,11 @@ public class Fifo {
 
         // this.length = args.length > 1 && args[0] != null ? args[0] : 20;
         this.length = 20;
-        this.lista_int = new int[this.length];
-        this.lista_string = new String[this.length];
+        this.list_int = new int[this.length];
+        this.list_string = new String[this.length];
 
-        this.ending = -1;
         this.beginning = -1;
+        this.ending = -1;
 
     }
 
@@ -37,8 +37,8 @@ public class Fifo {
         if (aux != this.beginning) {
 
             this.ending = aux;
-            this.lista_int[aux] = id;
-            this.lista_string[aux] = name;
+            this.list_int[aux] = id;
+            this.list_string[aux] = name;
 
             if (this.beginning < 0) {
                 this.beginning = 0;
@@ -62,6 +62,8 @@ public class Fifo {
 
             if (this.beginning != this.ending) {
                 this.beginning = (this.beginning + 1) % this.length;
+            } else {
+                output = this.destroy();
             }
 
             output = true;
@@ -70,9 +72,14 @@ public class Fifo {
         return output;
     }
 
-    public void destroy() {
+    /**
+    * @return {boolean} Returns true on success.
+    */
+    public boolean destroy() {
         this.beginning = -1;
         this.ending = -1;
+
+        return true;
     }
 
     /**
@@ -82,24 +89,26 @@ public class Fifo {
     public void show() {
 
         if (this.beginning == -1) {
-            System.out.println("Fila Vazia!");
-            return;
+            System.out.println("Fila Vazia!\n");
+        } else {
+
+            System.out.println("\n╔══ Lista de funcionários [" + this.beginning + ", " + this.ending + "].");
+
+            int i = this.beginning;
+            int endWhile = this.ending + 1;
+
+            do {
+
+                System.out.println("╠╦═ " + this.list_int[i]);
+                System.out.println("║╚═ " + this.list_string[i]);
+
+                i = ++i % this.length;
+
+            } while (i != endWhile);
+
+            System.out.println("╚═══════════════════════════");
         }
 
-        int aux = -1;
-
-        System.out.println("\n╔══ Lista de funcionários.");
-
-        do {
-
-            ++aux;
-
-            System.out.println("╠╦═ " + this.lista_int[aux]);
-            System.out.println("║╚═ " + this.lista_string[aux]);
-
-        } while (aux < this.ending);
-
-        System.out.println("╚═══════════════════════════");
     }
 
     /**
@@ -121,8 +130,8 @@ public class Fifo {
             do {
                 ++aux;
 
-                if (this.lista_int[aux] == id) {
-                    output = this.lista_string[aux];
+                if (this.list_int[aux] == id) {
+                    output = this.list_string[aux];
                     break;
                 }
 
@@ -131,6 +140,22 @@ public class Fifo {
         }
 
         return output;
+    }
+
+    /**
+    * Finds the emplyee index by it's ID.
+    * @method getIndexByID
+    * @return {String} Returns the ID and name of an employee.
+    */
+    public String getHEAD()
+    {
+        String head = "Ainda não há registros.";
+
+        if (this.beginning != -1) {
+            head = "#" + this.list_int[this.beginning] + " - " + this.list_string[this.beginning];
+        }
+
+        return head;
     }
 
     /**
@@ -150,7 +175,7 @@ public class Fifo {
             do {
                 ++aux;
 
-                if (this.lista_int[aux] == id) {
+                if (this.list_int[aux] == id) {
                     index = aux;
                 }
 
@@ -178,9 +203,9 @@ public class Fifo {
             do {
                 ++aux;
 
-                if (this.lista_int[aux] == id) {
+                if (this.list_int[aux] == id) {
                     position = aux - this.beginning;
-                    position = position < 0 ? aux + this.ending : position + 1;
+                    position += position < 0 ? this.length : 1;
                     break;
                 }
 
@@ -188,5 +213,15 @@ public class Fifo {
         }
 
         return position;
+    }
+
+    /**
+    * @return {int} Returns the list items quantity.
+    */
+    public int count()
+    {
+         return this.ending < this.beginning
+            ? this.length - this.beginning + this.ending + 1
+            : this.ending - this.beginning;
     }
 }

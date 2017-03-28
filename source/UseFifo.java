@@ -59,6 +59,7 @@ public class UseFifo {
                 } else {
                     System.out.println("Funcionário removido.");
                 }
+                System.out.println("");
 
                 break;
 
@@ -72,23 +73,27 @@ public class UseFifo {
 
                 // 4. Onde Está
                 case 4:
-                System.out.println("Digite a matrícula do funcionário:");
+                System.out.print("Digite a matrícula do funcionário:");
                 id = io.nextInt();
+                System.out.println();
 
-                System.out.println(list.getPositionByID(id));
+                System.out.println("Posição: " + list.getPositionByID(id) + "°\n");
 
                 break;
 
                 // 5. Quem é
                 case 5:
-                System.out.println("Digite a matrícula do funcionário:");
+                System.out.print("Digite a matrícula do funcionário:");
                 id = io.nextInt();
-                System.out.println("Nome: " + list.getNameByID(id));
+                System.out.println("Nome: " + list.getNameByID(id) + "\n");
 
                 break;
 
                 // 6. Cabeça
                 case 6:
+                System.out.print("O cabeça da lista é: ");
+                System.out.println(list.getHEAD() + "\n");
+
                 break;
 
                 // 7. Detonar
