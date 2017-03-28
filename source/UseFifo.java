@@ -1,9 +1,9 @@
 import java.util.Scanner; // leitura em CLI (Command Line Interface)
 
 /**
- * @author odahcam
- * @author anologicon
- */
+* @author odahcam
+* @author anologicon
+*/
 public class UseFifo {
 
     public static void main(String[] args) {
@@ -79,6 +79,10 @@ public class UseFifo {
 
                 // 5. Quem é
                 case 5:
+                System.out.println("\n Digite o ID do funcionario:");
+                id = io.nextInt();
+                list.show_in(id);
+
                 break;
 
                 // 6. Cabeça
