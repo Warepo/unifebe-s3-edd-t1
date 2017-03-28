@@ -52,7 +52,7 @@ public class UseFifo {
                 // 2. Retirar
                 case 2:
 
-                if (list.remove() === false) {
+                if (list.remove() == false) {
                     System.out.println("Fifo vazia.");
                 } else {
                     System.out.println("Funcionário removido.");
@@ -73,13 +73,13 @@ public class UseFifo {
                 System.out.println("Digite a matrícula do funcionario:");
                 id = io.nextInt();
 
-                list.show_in(id);
+                // list.show_in(id);
 
                 break;
 
                 // 5. Quem é
                 case 5:
-                System.out.println("\n Digite o ID do funcionario:");
+                System.out.println("\n Digite o matrículo do funcionario:");
                 id = io.nextInt();
                 list.getByIndex(id);
 
