@@ -81,7 +81,7 @@ public class UseFifo {
                 case 5:
                 System.out.println("\n Digite o matrículo do funcionario:");
                 id = io.nextInt();
-                list.getByIndex(id);
+                System.out.println(list.getByIndex(id));
 
                 break;
 
