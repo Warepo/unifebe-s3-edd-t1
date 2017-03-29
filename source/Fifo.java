@@ -11,8 +11,8 @@ public class Fifo {
     private int beginning;
     private int length;
 
-    public Fifo() {
-
+    public Fifo()
+    {
         // this.length = args.length > 1 && args[0] != null ? args[0] : 20;
         this.length = 20;
         this.list_int = new int[this.length];
@@ -20,7 +20,6 @@ public class Fifo {
 
         this.beginning = -1;
         this.ending = -1;
-
     }
 
     /**
@@ -30,15 +29,15 @@ public class Fifo {
     * @param {String} name : The employee name.
     * @return {boolean} Returns true on success and false on failure.
     */
-    public boolean insert(int id, String name) {
+    public boolean insert(int id, String name)
+    {
+        int nextIndex = (this.ending + 1) % this.length;
 
-        int aux = (this.ending + 1) % this.length;
+        if (nextIndex != this.beginning) {
 
-        if (aux != this.beginning) {
-
-            this.ending = aux;
-            this.list_int[aux] = id;
-            this.list_string[aux] = name;
+            this.ending = nextIndex;
+            this.list_int[nextIndex] = id;
+            this.list_string[nextIndex] = name;
 
             if (this.beginning < 0) {
                 this.beginning = 0;
@@ -54,8 +53,8 @@ public class Fifo {
     * @method remove
     * @return {boolean} Returns true on success and false on failure.
     */
-    public boolean remove() {
-
+    public boolean remove()
+    {
         boolean output = false;
 
         if (this.beginning > -1) {
@@ -75,7 +74,8 @@ public class Fifo {
     /**
     * @return {boolean} Returns true on success.
     */
-    public boolean destroy() {
+    public boolean destroy()
+    {
         this.beginning = -1;
         this.ending = -1;
 
@@ -86,8 +86,8 @@ public class Fifo {
     * Show the list items.
     * @return {void} Returns nothing.
     */
-    public void show() {
-
+    public void show()
+    {
         if (this.beginning == -1) {
             System.out.println("Fila Vazia!\n");
         } else {
@@ -109,37 +109,6 @@ public class Fifo {
             System.out.println("╚═══════════════════════════");
         }
 
-    }
-
-    /**
-    * Gets an employee name by it's index in the list.
-    * @method getNameByID
-    * @param {int} index : The employee index in list.
-    * @return {String} Returns the emplyee name.
-    */
-    public String getNameByID(int id) {
-
-        String output = "Fila Vazia!";
-
-        if (this.beginning != -1) {
-
-            output = "Não encontrado!";
-
-            int aux = -1;
-
-            do {
-                ++aux;
-
-                if (this.list_int[aux] == id) {
-                    output = this.list_string[aux];
-                    break;
-                }
-
-            } while (aux < this.ending);
-
-        }
-
-        return output;
     }
 
     /**
@@ -170,49 +139,44 @@ public class Fifo {
 
         if (this.beginning != -1) {
 
-            int aux = -1;
+            int i = this.beginning;
+            int endWhile = this.ending + 1;
 
             do {
-                ++aux;
+                ++i;
 
-                if (this.list_int[aux] == id) {
-                    index = aux;
+                if (this.list_int[i] == id) {
+                    index = i;
                 }
 
-            } while (aux < this.ending);
+            } while (i < this.ending);
         }
 
         return index;
     }
 
     /**
+    * Gets an employee name by it's index in the list.
+    * @method getNameByID
+    * @param {int} index : The employee index in list.
+    * @return {String} Returns the emplyee name.
+    */
+    public String getNameByID(int id)
+    {
+        int index = this.getIndexByID(id);
+        return index < 0 ? "" : this.list_string[index];
+    }
+
+    /**
     * Finds the emplyee position by it's ID.
     * @method getPositionByID
     * @param {int} id : the emplyee ID
-    * @return {String} Returns the emplyee position.
+    * @return {int} Returns the emplyee position.
     */
     public int getPositionByID(int id)
     {
-        int position = -1;
         int index = this.getIndexByID(id);
-
-        if (index != -1) {
-
-            int aux = -1;
-
-            do {
-                ++aux;
-
-                if (this.list_int[aux] == id) {
-                    position = aux - this.beginning;
-                    position += position < 0 ? this.length : 1;
-                    break;
-                }
-
-            } while (aux < this.ending);
-        }
-
-        return position;
+        return index + (index < 0 ? this.length : 1);
     }
 
     /**
