@@ -139,15 +139,15 @@ public class Fifo {
 
         if (this.beginning != -1) {
 
-            int i = this.beginning - 1;
+            int i = this.beginning;
             int endWhile = this.ending + 1;
 
             do {
-                ++i;
 
                 if (this.list_int[i] == id) {
                     index = i;
                 }
+                ++i;
 
             } while (i != endWhile);
         }
