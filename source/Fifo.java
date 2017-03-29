@@ -139,7 +139,7 @@ public class Fifo {
 
         if (this.beginning != -1) {
 
-            int i = this.beginning - ;
+            int i = this.beginning - 1;
             int endWhile = this.ending + 1;
 
             do {
