@@ -24,12 +24,12 @@ public class Fifo {
 
     /**
     * Adds an employee to the list.
-    * @method insert
+    * @method push
     * @param {int} id : The employee ID number.
     * @param {String} name : The employee name.
     * @return {boolean} Returns true on success and false on failure.
     */
-    public boolean insert(int id, String name)
+    public boolean push(int id, String name)
     {
         int nextIndex = (this.ending + 1) % this.length;
 
@@ -50,10 +50,10 @@ public class Fifo {
     }
 
     /**
-    * @method remove
+    * @method pop
     * @return {boolean} Returns true on success and false on failure.
     */
-    public boolean remove()
+    public boolean pop()
     {
         boolean output = false;
 

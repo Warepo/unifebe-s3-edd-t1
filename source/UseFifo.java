@@ -55,7 +55,7 @@ public class UseFifo {
                 // 2. Retirar
                 case 2:
 
-                if (list.remove() == false) {
+                if (list.pop() == false) {
                     System.out.println("Fifo vazia.");
                 } else {
                     System.out.println("Funcionário removido.");
