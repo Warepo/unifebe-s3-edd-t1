@@ -116,38 +116,6 @@ public class Lifo {
     }
 
     /**
-    * Gets an employee name by it's index in the list.
-    * @method getNameByID
-    * @param {int} index : The employee index in list.
-    * @return {String} Returns the emplyee name.
-    */
-    public String getNameByID(int id) {
-
-        String output = "Fila Vazia!";
-
-        if (this.beginning != -1) {
-
-            output = "Não encontrado!";
-
-            int i = this.beginning;
-            int endWhile = this.ending + 1;
-
-            do {
-                ++i;
-
-                if (this.list_int[i] == id) {
-                    output = this.list_string[i];
-                    break;
-                }
-
-            } while (i < this.ending);
-
-        }
-
-        return output;
-    }
-
-    /**
     * Finds the emplyee index by it's ID.
     * @method getIndexByID
     * @return {String} Returns the ID and name of an employee.
@@ -189,37 +157,6 @@ public class Lifo {
         }
 
         return index;
-    }
-
-    /**
-    * Finds the emplyee position by it's ID.
-    * @method getPositionByID
-    * @param {int} id : the emplyee ID
-    * @return {String} Returns the emplyee position.
-    */
-    public int getPositionByID(int id)
-    {
-        int position = -1;
-        int index = this.getIndexByID(id);
-
-        if (index != -1) {
-
-            int i = this.beginning;
-            int endWhile = this.ending + 1;
-
-            do {
-                ++i;
-
-                if (this.list_int[i] == id) {
-                    position = i - this.beginning;
-                    position += position < 0 ? this.length : 1;
-                    break;
-                }
-
-            } while (i < this.ending);
-        }
-
-        return position;
     }
 
     /**
