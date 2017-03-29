@@ -1,5 +1,5 @@
 /**
-* A LIFO (LAst-In First-Out) list "interface".
+* A LIFO (Last-In First-Out) list "interface".
 * @author odahcam
 * @author anologicon
 */
@@ -30,7 +30,7 @@ public class Lifo {
     * @param {String} name : The employee name.
     * @return {boolean} Returns true on success and false on failure.
     */
-    public boolean insert(int id, String name) {
+    public boolean push(int id, String name) {
 
         int aux = (this.ending + 1) % this.length;
 
@@ -76,96 +76,4 @@ public class Lifo {
         return output;
     }
 
-    /**
-    * @return {boolean} Returns true on success.
-    */
-    public boolean destroy() {
-        this.beginning = -1;
-        this.ending = -1;
-
-        return true;
-    }
-
-    /**
-    * Show the list items.
-    * @return {void} Returns nothing.
-    */
-    public void show() {
-
-        if (this.beginning == -1) {
-            System.out.println("Fila Vazia!\n");
-        } else {
-
-            System.out.println("\n╔══ Lista de funcionários [" + this.beginning + ", " + this.ending + "].");
-
-            int i = this.beginning;
-            int endWhile = this.ending + 1;
-
-            do {
-
-                System.out.println("╠╦═ " + this.list_int[i]);
-                System.out.println("║╚═ " + this.list_string[i]);
-
-                i = ++i % this.length;
-
-            } while (i != endWhile);
-
-            System.out.println("╚═══════════════════════════");
-        }
-
-    }
-
-    /**
-    * Finds the emplyee index by it's ID.
-    * @method getIndexByID
-    * @return {String} Returns the ID and name of an employee.
-    */
-    public String getHEAD()
-    {
-        String head = "Ainda não há registros.";
-
-        if (this.beginning != -1) {
-            head = "#" + this.list_int[this.beginning] + " - " + this.list_string[this.beginning];
-        }
-
-        return head;
-    }
-
-    /**
-    * Finds the emplyee index by it's ID.
-    * @method getIndexByID
-    * @param {int} id : the emplyee ID
-    * @return {String} Returns the emplyee index.
-    */
-    public int getIndexByID(int id)
-    {
-        int index = -1;
-
-        if (this.beginning != -1) {
-
-            int i = this.beginning;
-            int endWhile = this.ending + 1;
-
-            do {
-                ++i;
-
-                if (this.list_int[i] == id) {
-                    index = i;
-                }
-
-            } while (i < this.ending);
-        }
-
-        return index;
-    }
-
-    /**
-    * @return {int} Returns the list items quantity.
-    */
-    public int count()
-    {
-         return this.ending < this.beginning
-            ? this.length - this.beginning + this.ending + 1
-            : this.ending - this.beginning;
-    }
 }
