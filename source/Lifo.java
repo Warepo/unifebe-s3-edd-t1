@@ -40,7 +40,7 @@ public class Lifo {
                 --this.ending;
                 // endif
             } else {
-                output = this.destroy();
+                // output = this.destroy();
             }
 
             output = true;
