@@ -10,7 +10,8 @@ public class UseFifo {
         Scanner io = new Scanner(System.in);
 
         Fifo list = new Fifo();
-        int choice, id;
+        int choice, id, position;
+        String name;
 
         do {
             System.out.println("╔═══════════════════");
@@ -37,7 +38,7 @@ public class UseFifo {
                 id = io.nextInt();
 
                 System.out.print("Informe o nome: ");
-                String name = io.next();
+                name = io.next();
 
                 System.out.print("\n");
 
@@ -77,7 +78,12 @@ public class UseFifo {
                 id = io.nextInt();
                 System.out.println();
 
-                System.out.println("Posição: " + list.getPositionByID(id) + "°\n");
+                position = list.getPositionByID(id);
+                if (position > 0) {
+                    System.out.println("Posição: " + list.getPositionByID(id) + "°\n");
+                } else {
+                    System.out.println("Funcionário não encontrado.\n");
+                }
 
                 break;
 
@@ -85,7 +91,13 @@ public class UseFifo {
                 case 5:
                 System.out.print("Digite a matrícula do funcionário:");
                 id = io.nextInt();
-                System.out.println("Nome: " + list.getNameByID(id) + "\n");
+                name = list.getNameByID(id);
+
+                if (name != "") {
+                    System.out.println("Nome: " + list.getNameByID(id) + "\n");
+                } else {
+                    System.out.println("Funcionário não encontrado.\n");
+                }
 
                 break;
 
