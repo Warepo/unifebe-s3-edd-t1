@@ -115,6 +115,7 @@ public class UseFifo {
 
                 // 8. Quantos
                 case 8:
+                System.out.println("A lista possui " + list.count() + " funcionários.");
                 break;
 
                 // 9. Vazar
