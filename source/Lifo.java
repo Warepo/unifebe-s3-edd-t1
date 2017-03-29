@@ -24,33 +24,6 @@ public class Lifo {
     }
 
     /**
-    * Adds an employee to the list.
-    * @method insert
-    * @param {int} id : The employee ID number.
-    * @param {String} name : The employee name.
-    * @return {boolean} Returns true on success and false on failure.
-    */
-    public boolean push(int id, String name) {
-
-        int aux = (this.ending + 1) % this.length;
-
-        if (aux != this.beginning) {
-
-            this.ending = aux;
-            this.list_int[aux] = id;
-            this.list_string[aux] = name;
-
-            if (this.beginning < 0) {
-                this.beginning = 0;
-            }
-
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
     * @method remove
     * @return {boolean} Returns true on success and false on failure.
     */

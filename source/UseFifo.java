@@ -42,7 +42,7 @@ public class UseFifo {
 
                 System.out.print("\n");
 
-                if (list.insert(id, name)) {
+                if (list.push(id, name)) {
                     System.out.println("Funcionário inserido com sucesso!");
                 } else {
                     System.out.println("Fifo cheia - Overflow.");
@@ -115,7 +115,7 @@ public class UseFifo {
 
                 // 8. Quantos
                 case 8:
-                System.out.println("A lista possui " + list.count() + " funcionários.");
+                System.out.println("A lista possui " + list.count() + " funcionários.\n");
                 break;
 
                 // 9. Vazar

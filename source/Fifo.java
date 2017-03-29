@@ -14,7 +14,7 @@ public class Fifo {
     public Fifo()
     {
         // this.length = args.length > 1 && args[0] != null ? args[0] : 20;
-        this.length = 20;
+        this.length = 6;
         this.list_int = new int[this.length];
         this.list_string = new String[this.length];
 
@@ -94,19 +94,23 @@ public class Fifo {
 
             System.out.println("\n╔══ Lista de funcionários [" + this.beginning + ", " + this.ending + "].");
 
-            int i = this.beginning;
-            int endWhile = this.ending + 1;
+            // define chave pré execução
+            int i = this.beginning - 1;
 
+            // executa
             do {
 
+                // incrementa
+                i = ++i % this.length;
+
+                // exibe
                 System.out.println("╠╦═ " + this.list_int[i]);
                 System.out.println("║╚═ " + this.list_string[i]);
 
-                i = ++i % this.length;
+                // testa se é o último
+            } while (i != this.ending);
 
-            } while (i != endWhile);
-
-            System.out.println("╚═══════════════════════════");
+            System.out.println("╚════");
         }
 
     }
@@ -140,16 +144,17 @@ public class Fifo {
         if (this.beginning != -1) {
 
             int i = this.beginning;
-            int endWhile = this.ending + 1;
 
             do {
+
+                ++i;
 
                 if (this.list_int[i] == id) {
                     index = i;
                 }
-                ++i;
 
-            } while (i != endWhile);
+            } while (i != this.ending);
+
         }
 
         return index;
