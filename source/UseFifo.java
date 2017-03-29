@@ -16,15 +16,15 @@ public class UseFifo {
         do {
             System.out.println("╔═══════════════════");
             System.out.println("║ Menu");
-            System.out.println("╠══ 1. Inserir");
-            System.out.println("╠══ 2. Retirar");
-            System.out.println("╠══ 3. Ver lista");
-            System.out.println("╠══ 4. Onde Está");
-            System.out.println("╠══ 5. Quem é");
-            System.out.println("╠══ 6. Cabeça");
-            System.out.println("╠══ 7. Detonar");
-            System.out.println("╠══ 8. Quantos");
-            System.out.println("╠══ 9. Vazar");
+            System.out.println("╠═ 1. Inserir");
+            System.out.println("╠═ 2. Retirar");
+            System.out.println("╠═ 3. Ver lista");
+            System.out.println("╠═ 4. Onde Está");
+            System.out.println("╠═ 5. Quem é");
+            System.out.println("╠═ 6. Cabeça");
+            System.out.println("╠═ 7. Detonar");
+            System.out.println("╠═ 8. Quantos");
+            System.out.println("╠═ 9. Vazar");
             System.out.print("╚═ Digite o número da ação desejada: ");
 
             choice = io.nextInt();
