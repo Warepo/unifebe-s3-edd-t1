@@ -198,8 +198,8 @@ public class Fifo {
     */
     public int count()
     {
-         return this.ending < this.beginning
-            ? this.length - this.beginning + this.ending + 1
-            : this.ending - this.beginning;
+        return 1 + (this.ending < this.beginning
+            ? this.length - this.beginning + this.ending
+            : this.ending - this.beginning);
     }
 }
