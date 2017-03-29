@@ -139,7 +139,7 @@ public class Fifo {
 
         if (this.beginning != -1) {
 
-            int i = this.beginning;
+            int i = this.beginning - ;
             int endWhile = this.ending + 1;
 
             do {
@@ -149,7 +149,7 @@ public class Fifo {
                     index = i;
                 }
 
-            } while (i < this.ending);
+            } while (i != endWhile);
         }
 
         return index;
@@ -176,7 +176,16 @@ public class Fifo {
     public int getPositionByID(int id)
     {
         int index = this.getIndexByID(id);
-        return index + (index < 0 ? this.length : 1);
+        int position;
+
+        if (index > -1) {
+            position = index - this.beginning;
+            position += position < 0 ? this.length : 1;
+        } else {
+            position = 0;
+        }
+
+        return position;
     }
 
     /**
