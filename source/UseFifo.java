@@ -1,8 +1,8 @@
 import java.util.Scanner; // leitura em CLI (Command Line Interface)
 
 /**
-* @author odahcam
-* @author anologicon
+* @author odahcam <odahcam@unifebe.edu.br>
+* @author anologicon <pauloraimundi2009@unifebe.edu.br>
 */
 public class UseFifo {
 

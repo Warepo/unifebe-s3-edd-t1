@@ -1,7 +1,7 @@
 /**
 * A FIFO (First-In First-Out) list "interface".
-* @author odahcam
-* @author anologicon
+* @author odahcam <odahcam@unifebe.edu.br>
+* @author anologicon <pauloraimundi2009@unifebe.edu.br>
 */
 public class Fifo {
 
