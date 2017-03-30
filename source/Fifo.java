@@ -5,21 +5,18 @@
 */
 public class Fifo {
 
-    private int list_int[];
-    private String list_string[];
-    private int ending;
-    private int beginning;
-    private int length;
+    private int list_int[];     // lista de matrículas
+    private String list_string[];     // lista de nomes
+    private int ending, beginning, length;     // atributos de controle
 
     public Fifo()
     {
         // this.length = args.length > 1 && args[0] != null ? args[0] : 20;
-        this.length = 6;
+        this.length = 4;
         this.list_int = new int[this.length];
         this.list_string = new String[this.length];
 
-        this.beginning = -1;
-        this.ending = -1;
+        this.beginning = this.ending = -1;
     }
 
     /**
@@ -60,7 +57,11 @@ public class Fifo {
         if (this.beginning > -1) {
 
             if (this.beginning != this.ending) {
+                // if Fifo
                 this.beginning = (this.beginning + 1) % this.length;
+                // elseif Lifo
+                // --this.ending;
+                // endif
             } else {
                 output = this.destroy();
             }
@@ -76,8 +77,7 @@ public class Fifo {
     */
     public boolean destroy()
     {
-        this.beginning = -1;
-        this.ending = -1;
+        this.beginning = this.ending = -1;
 
         return true;
     }
@@ -117,15 +117,15 @@ public class Fifo {
 
     /**
     * Finds the emplyee index by it's ID.
-    * @method getIndexByID
-    * @return {String} Returns the ID and name of an employee.
+    * @method getHEAD
+    * @return {String} Returns the ID and name of the head employee.
     */
     public String getHEAD()
     {
         String head = "Ainda não há registros.";
 
-        if (this.beginning != -1) {
-            head = "#" + this.list_int[this.beginning] + " - " + this.list_string[this.beginning];
+        if (this.ending != -1) {
+            head = "#" + this.list_int[this.ending] + " - " + this.list_string[this.ending];
         }
 
         return head;
@@ -145,14 +145,18 @@ public class Fifo {
 
             int i = this.beginning - 1;
 
+            // executa
             do {
 
-                ++i;
+                // incrementa
+                i = ++i % this.length;
 
                 if (this.list_int[i] == id) {
                     index = i;
+                    break;
                 }
 
+                // testa se é o último
             } while (i != this.ending);
 
         }
