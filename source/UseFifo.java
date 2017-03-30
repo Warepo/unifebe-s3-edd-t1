@@ -1,12 +1,13 @@
 import java.util.Scanner; // leitura em CLI (Command Line Interface)
 
 /**
-* @author odahcam <odahcam@unifebe.edu.br>
-* @author anologicon <pauloraimundi2009@unifebe.edu.br>
-*/
+ * @author odahcam <odahcam@unifebe.edu.br>
+ * @author anologicon <pauloraimundi2009@unifebe.edu.br>
+ */
 public class UseFifo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Scanner io = new Scanner(System.in);
 
         Fifo list = new Fifo();
@@ -32,8 +33,8 @@ public class UseFifo {
             System.out.print("\n\n");
 
             switch (choice) {
-                // 1. Inserir
-                case 1:
+            // 1. Inserir
+            case 1:
                 System.out.print("Informe a matrícula: ");
                 id = io.nextInt();
 
@@ -52,8 +53,8 @@ public class UseFifo {
 
                 break;
 
-                // 2. Retirar
-                case 2:
+            // 2. Retirar
+            case 2:
 
                 if (list.pop() == false) {
                     System.out.println("Fifo vazia.");
@@ -64,16 +65,16 @@ public class UseFifo {
 
                 break;
 
-                // 3. Ver Lista
-                case 3:
+            // 3. Ver Lista
+            case 3:
                 System.out.println("Veja a lista: ");
 
                 list.show();
 
                 break;
 
-                // 4. Onde Está
-                case 4:
+            // 4. Onde Está
+            case 4:
                 System.out.print("Digite a matrícula do funcionário:");
                 id = io.nextInt();
                 System.out.println();
@@ -87,8 +88,8 @@ public class UseFifo {
 
                 break;
 
-                // 5. Quem é
-                case 5:
+            // 5. Quem é
+            case 5:
                 System.out.print("Digite a matrícula do funcionário:");
                 id = io.nextInt();
                 name = list.getNameByID(id);
@@ -101,29 +102,29 @@ public class UseFifo {
 
                 break;
 
-                // 6. Cabeça
-                case 6:
+            // 6. Cabeça
+            case 6:
                 System.out.print("O cabeça da lista é: ");
                 System.out.println(list.getHEAD() + "\n");
 
                 break;
 
-                // 7. Detonar
-                case 7:
+            // 7. Detonar
+            case 7:
                 list.destroy();
                 break;
 
-                // 8. Quantos
-                case 8:
+            // 8. Quantos
+            case 8:
                 System.out.println("A lista possui " + list.count() + " funcionários.\n");
                 break;
 
-                // 9. Vazar
-                case 9:
+            // 9. Vazar
+            case 9:
                 break;
 
-                // Não entendido
-                default:
+            // Não entendido
+            default:
                 System.out.println("Não foi possível identificar sua escolha, por favor, escolha novamente:\n");
                 break;
             }

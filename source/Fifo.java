@@ -1,8 +1,8 @@
 /**
-* A FIFO (First-In First-Out) list "interface".
-* @author odahcam <odahcam@unifebe.edu.br>
-* @author anologicon <pauloraimundi2009@unifebe.edu.br>
-*/
+ * A FIFO (First-In First-Out) list "interface".
+ * @author odahcam <odahcam@unifebe.edu.br>
+ * @author anologicon <pauloraimundi2009@unifebe.edu.br>
+ */
 public class Fifo {
 
     private int list_int[];     // lista de matrículas
@@ -20,12 +20,12 @@ public class Fifo {
     }
 
     /**
-    * Adds an employee to the list.
-    * @method push
-    * @param {int} id : The employee ID number.
-    * @param {String} name : The employee name.
-    * @return {boolean} Returns true on success and false on failure.
-    */
+     * Adds an employee to the list.
+     * @method push
+     * @param {int} id : The employee ID number.
+     * @param {String} name : The employee name.
+     * @return {boolean} Returns true on success and false on failure.
+     */
     public boolean push(int id, String name)
     {
         int nextIndex = (this.ending + 1) % this.length;
@@ -47,9 +47,9 @@ public class Fifo {
     }
 
     /**
-    * @method pop
-    * @return {boolean} Returns true on success and false on failure.
-    */
+     * @method pop
+     * @return {boolean} Returns true on success and false on failure.
+     */
     public boolean pop()
     {
         boolean output = false;
@@ -73,8 +73,8 @@ public class Fifo {
     }
 
     /**
-    * @return {boolean} Returns true on success.
-    */
+     * @return {boolean} Returns true on success.
+     */
     public boolean destroy()
     {
         this.beginning = this.ending = -1;
@@ -83,9 +83,9 @@ public class Fifo {
     }
 
     /**
-    * Show the list items.
-    * @return {void} Returns nothing.
-    */
+     * Show the list items.
+     * @return {void} Returns nothing.
+     */
     public void show()
     {
         if (this.beginning == -1) {
@@ -116,10 +116,10 @@ public class Fifo {
     }
 
     /**
-    * Finds the emplyee index by it's ID.
-    * @method getHEAD
-    * @return {String} Returns the ID and name of the head employee.
-    */
+     * Finds the emplyee index by it's ID.
+     * @method getHEAD
+     * @return {String} Returns the ID and name of the head employee.
+     */
     public String getHEAD()
     {
         String head = "Ainda não há registros.";
@@ -132,11 +132,11 @@ public class Fifo {
     }
 
     /**
-    * Finds the emplyee index by it's ID.
-    * @method getIndexByID
-    * @param {int} id : the emplyee ID
-    * @return {String} Returns the emplyee index.
-    */
+     * Finds the emplyee index by it's ID.
+     * @method getIndexByID
+     * @param {int} id : the emplyee ID
+     * @return {String} Returns the emplyee index.
+     */
     public int getIndexByID(int id)
     {
         int index = -1;
@@ -165,11 +165,11 @@ public class Fifo {
     }
 
     /**
-    * Gets an employee name by it's index in the list.
-    * @method getNameByID
-    * @param {int} index : The employee index in list.
-    * @return {String} Returns the emplyee name.
-    */
+     * Gets an employee name by it's index in the list.
+     * @method getNameByID
+     * @param {int} index : The employee index in list.
+     * @return {String} Returns the emplyee name.
+     */
     public String getNameByID(int id)
     {
         int index = this.getIndexByID(id);
@@ -177,11 +177,11 @@ public class Fifo {
     }
 
     /**
-    * Finds the emplyee position by it's ID.
-    * @method getPositionByID
-    * @param {int} id : the emplyee ID
-    * @return {int} Returns the emplyee position.
-    */
+     * Finds the emplyee position by it's ID.
+     * @method getPositionByID
+     * @param {int} id : the emplyee ID
+     * @return {int} Returns the emplyee position.
+     */
     public int getPositionByID(int id)
     {
         int index = this.getIndexByID(id);
@@ -198,12 +198,12 @@ public class Fifo {
     }
 
     /**
-    * @return {int} Returns the list items quantity.
-    */
+     * @return {int} Returns the list items quantity.
+     */
     public int count()
     {
         return 1 + (this.ending < this.beginning
-            ? this.length - this.beginning + this.ending
-            : this.ending - this.beginning);
+                    ? this.length - this.beginning + this.ending
+                    : this.ending - this.beginning);
     }
 }
